@@ -4,6 +4,19 @@ project(usb4java C)
 set(PROJECT_VERSION 1.3.1)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/.cmake/Modules/")
 
+set(JAVA_AWT_LIBRARY NotNeeded)
+set(JAVA_JVM_LIBRARY NotNeeded)
+set(JAVA_INCLUDE_PATH2 NotNeeded)
+set(JAVA_AWT_INCLUDE_PATH NotNeeded)
+
+set(LibUsb_LIBRARIES libusblib)
+set(LibUsb_INCLUDE_DIRS "${CMAKE_SOURCE_DIR}/../libusb/src/main/cpp/libusb")
+
+add_library(${LibUsb_LIBRARIES} SHARED IMPORTED)
+
+set_property(TARGET ${LibUsb_LIBRARIES} PROPERTY IMPORTED_LOCATION
+${CMAKE_SOURCE_DIR}/../libusb/build/intermediates/library_jni/debug/jni/armeabi-v7a/libusb1.0.so)
+
 find_package(JNI REQUIRED)
 find_package(LibUsb REQUIRED)
 
