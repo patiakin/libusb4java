@@ -115,7 +115,7 @@
 #define THREAD_BEGIN(ENV, RESULT) \
     RESULT = (*jvm)->GetEnv(jvm, (void **) &ENV, JNI_VERSION_1_6); \
     if (RESULT == JNI_EDETACHED) \
-        (*jvm)->AttachCurrentThread(jvm, (void**) &ENV, NULL);
+        (*jvm)->AttachCurrentThread(jvm, &ENV, NULL);
 
 /**
  * Detaches the Java environment from the current thread.
