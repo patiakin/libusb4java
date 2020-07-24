@@ -14,8 +14,8 @@ set(LibUsb_INCLUDE_DIRS "${CMAKE_SOURCE_DIR}/../libusb/src/main/cpp/libusb")
 
 add_library(${LibUsb_LIBRARIES} SHARED IMPORTED)
 
-set_property(TARGET ${LibUsb_LIBRARIES} PROPERTY IMPORTED_LOCATION
-${CMAKE_SOURCE_DIR}/../libusb/build/intermediates/library_jni/debug/jni/${ANDROID_ABI}/libusb1.0.so)
+set_target_properties(${LibUsb_LIBRARIES} PROPERTIES IMPORTED_LOCATION
+${CMAKE_SOURCE_DIR}/../libusb/build/intermediates/ndkBuild/${CMAKE_BUILD_TYPE}/obj/local/${ANDROID_ABI}/libusb1.0.so)
 
 find_package(JNI REQUIRED)
 find_package(LibUsb REQUIRED)
